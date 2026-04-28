@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Проверка подключения...</title>
   <style>
     body {
@@ -26,25 +26,16 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      position: relative;
-      z-index: 2;
     }
 
     .status {
-      font-size: 20px;
+      font-size: 22px;
       margin: 10px 0;
-      min-height: 28px;
-    }
-
-    .small {
-      color: #8b949e;
-      font-size: 14px;
-      margin-top: 8px;
     }
 
     .result {
       display: none;
-      margin-top: 18px;
+      margin-top: 20px;
       padding: 16px;
       border-radius: 12px;
       background: #0f141a;
@@ -55,89 +46,23 @@
     .ip {
       font-size: 28px;
       font-weight: bold;
-      margin: 10px 0;
       color: #58a6ff;
+      margin-top: 10px;
       word-break: break-all;
     }
 
     .prank {
       display: none;
-      margin-top: 18px;
-      font-size: 30px;
+      margin-top: 20px;
+      font-size: 32px;
       font-weight: bold;
       color: #ff5c5c;
     }
+
+    .small {
+      color: #8b949e;
+      font-size: 14px;
+      margin-top: 10px;
+    }
   </style>
-</head>
-<body>
-  <div class="box">
-    <h1>Проверка подключения...</h1>
-    <div class="status" id="status">Запуск анализа...</div>
-
-    <div class="result" id="result">
-      <div><b>Статус:</b> Подключение установлено</div>
-      <div><b>Устройство:</b> <span id="device">Смартфон</span></div>
-      <div><b>IP:</b></div>
-      <div class="ip" id="fakeIp">0.0.0.0</div>
-      <div><b>Локация:</b> <span id="loc">Определяется...</span></div>
-      <div class="small">* Демонстрационный экран. Реальные данные не собираются.</div>
-    </div>
-
-    <div class="prank" id="prank">ПОПАЛСЯ 😂</div>
-  </div>
-
-  <script>
-    function rand(n) { return Math.floor(Math.random() * n); }
-
-    function makeFakeIp() {
-      return ${rand(223)+1}.${rand(255)}.${rand(255)}.${rand(255)};
-    }
-
-    function detectDevice() {
-      const ua = navigator.userAgent.toLowerCase();
-      if (/iphone|android|mobile/.test(ua)) return "Смартфон";
-      if (/ipad|tablet/.test(ua)) return "Планшет";
-      return "ПК / Ноутбук";
-    }
-
-    function startScan() {
-      const status = document.getElementById("status");
-      const result = document.getElementById("result");
-      const prank = document.getElementById("prank");
-
-      const steps = [
-        "Подключение к узлу...",
-        "Определение устройства...",
-        "Поиск сетевого маршрута...",
-        "Анализ соединения...",
-        "Подготовка отчёта..."
-      ];
-
-      let i = 0;
-      status.textContent = steps[i];
-
-      const timer = setInterval(() => {
-        i++;
-        if (i < steps.length) {
-          status.textContent = steps[i];
-        } else {
-          clearInterval(timer);
-
-          document.getElementById("device").textContent = detectDevice();
-          document.getElementById("fakeIp").textContent = makeFakeIp();
-          document.getElementById("loc").textContent = "Обнаружено 👀";
-
-          status.textContent = "Анализ завершён";
-          result.style.display = "block";
-
-          setTimeout(() => {
-            prank.style.display = "block";
-          }, 1200);
-        }
-      }, 900);
-    }
-
-    window.onload = startScan;
-  </script>
-</body>
-</html>
+</head
