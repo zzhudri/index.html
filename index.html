@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Проверка подключения…</title>
+  <title>Проверка подключения...</title>
   <style>
     body {
       margin: 0;
@@ -17,6 +17,7 @@
       text-align: center;
       padding: 20px;
     }
+
     .box {
       max-width: 560px;
       width: 100%;
@@ -25,17 +26,22 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position: relative;
+      z-index: 2;
     }
+
     .status {
       font-size: 20px;
       margin: 10px 0;
       min-height: 28px;
     }
+
     .small {
       color: #8b949e;
       font-size: 14px;
       margin-top: 8px;
     }
+
     .result {
       display: none;
       margin-top: 18px;
@@ -45,6 +51,7 @@
       border: 1px solid #30363d;
       text-align: left;
     }
+
     .ip {
       font-size: 28px;
       font-weight: bold;
@@ -52,33 +59,27 @@
       color: #58a6ff;
       word-break: break-all;
     }
+
     .prank {
       display: none;
       margin-top: 18px;
       font-size: 30px;
-    }
-    button {
-      margin-top: 14px;
-      padding: 12px 22px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 18px;
+      font-weight: bold;
+      color: #ff5c5c;
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>Проверка подключения…</h1>
-    <div class="status" id="status">Нажми кнопку для анализа 😈</div>
-    <button onclick="startScan()">Начать</button>
+    <h1>Проверка подключения...</h1>
+    <div class="status" id="status">Запуск анализа...</div>
 
     <div class="result" id="result">
       <div><b>Статус:</b> Подключение установлено</div>
       <div><b>Устройство:</b> <span id="device">Смартфон</span></div>
       <div><b>IP:</b></div>
       <div class="ip" id="fakeIp">0.0.0.0</div>
-      <div><b>Локация:</b> <span id="loc">Определяется…</span></div>
+      <div><b>Локация:</b> <span id="loc">Определяется...</span></div>
       <div class="small">* Демонстрационный экран. Реальные данные не собираются.</div>
     </div>
 
@@ -104,15 +105,12 @@
       const result = document.getElementById("result");
       const prank = document.getElementById("prank");
 
-      result.style.display = "none";
-      prank.style.display = "none";
-
       const steps = [
-        "Подключение к узлу…",
-        "Определение устройства…",
-        "Поиск сетевого маршрута…",
-        "Анализ соединения…",
-        "Подготовка отчёта…"
+        "Подключение к узлу...",
+        "Определение устройства...",
+        "Поиск сетевого маршрута...",
+        "Анализ соединения...",
+        "Подготовка отчёта..."
       ];
 
       let i = 0;
@@ -138,6 +136,8 @@
         }
       }, 900);
     }
+
+    window.onload = startScan;
   </script>
 </body>
 </html>
